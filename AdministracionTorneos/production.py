@@ -19,9 +19,10 @@ MIDDLEWARE = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'AdministracionTorneos/static')
 
-# DBHOST is only the server name, not the full URL
+# DBHOST is only t
+he server name, not the full URL
 hostname = os.environ['DBHOST']
 
 # Configure Postgres database; the full username is username@servername,

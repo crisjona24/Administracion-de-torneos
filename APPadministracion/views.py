@@ -88,8 +88,8 @@ class EncuentroViewSet(viewsets.ModelViewSet):
 
 #implementaciones del form Persona 
 def agregarPersona(request):
-    formularioPersona = FormularioPersona(request.POST or None)
-    if request.method == 'POST':
+    formularioPersona = FormularioPersona(request.GET or None)
+    if request.method == 'GET':
         if formularioPersona.is_valid():
             datosPersona = formularioPersona.cleaned_data
             persona = Persona()
@@ -108,8 +108,8 @@ def agregarPersona(request):
 
 #implementaciones del form Torneo 
 def agregarTorneo(request):
-    formularioTorneo = FormularioTorneo(request.POST or None)
-    if request.method == 'POST':
+    formularioTorneo = FormularioTorneo(request.GET or None)
+    if request.method == 'GET':
         if formularioTorneo.is_valid():
             datosTorneo = formularioTorneo.cleaned_data
             torneo = Torneo()
@@ -128,8 +128,8 @@ def agregarTorneo(request):
 
 #implementaciones del form Implementos 
 def agregarImplementos(request):
-    formularioImplementos = FormularioImplementos(request.POST or None)
-    if request.method == 'POST':
+    formularioImplementos = FormularioImplementos(request.GET or None)
+    if request.method == 'GET':
         if formularioImplementos.is_valid():
             datosImplemento = formularioImplementos.cleaned_data
             implemento = Implementos()
@@ -146,8 +146,8 @@ def agregarImplementos(request):
 
 #implementaciones del form Arbitro 
 def agregarArbitro(request):
-    formularioArbitro = FormularioArbitro(request.POST or None)
-    if request.method == 'POST':
+    formularioArbitro = FormularioArbitro(request.GET or None)
+    if request.method == 'GET':
         if formularioArbitro.is_valid():
             datosArbitro = formularioArbitro.cleaned_data
             arbitro = Arbitro()
@@ -165,8 +165,8 @@ def agregarArbitro(request):
 
 #implementaciones del form Ticket 
 def agregarTicket(request):
-    formularioTicket = FormularioTicket(request.POST or None)
-    if request.method == 'POST':
+    formularioTicket = FormularioTicket(request.GET or None)
+    if request.method == 'GET':
         if formularioTicket.is_valid():
             datostic = formularioTicket.cleaned_data
             tic = Ticket()
@@ -184,8 +184,8 @@ def agregarTicket(request):
 
 #implementaciones del form Equipo 
 def agregarEquipo(request):
-    formularioEquipo = FormularioEquipo(request.POST or None)
-    if request.method == 'POST':
+    formularioEquipo = FormularioEquipo(request.GET or None)
+    if request.method == 'GET':
         if formularioEquipo.is_valid():
             datosEquipo = formularioEquipo.cleaned_data
             equipo = Equipo()
@@ -204,8 +204,8 @@ def agregarEquipo(request):
 
 #implementaciones del form Jugador 
 def agregarJugador(request):
-    formularioJugador = FormularioJugador(request.POST or None)
-    if request.method == 'POST':
+    formularioJugador = FormularioJugador(request.GET or None)
+    if request.method == 'GET':
         if formularioJugador.is_valid():
             datosJugador = formularioJugador.cleaned_data
             jugador = Jugador()
@@ -224,9 +224,9 @@ def agregarJugador(request):
 
 #implementaciones del form Encuentro
 def agregarEncuentros(request):
-    formularioEncuentro = FormularioEncuentro(request.POST or None)
+    formularioEncuentro = FormularioEncuentro(request.GET or None)
     #tor = Torneo.objects.filter(id__icontains=id)
-    if request.method == 'POST':
+    if request.method == 'GET':
         if formularioEncuentro.is_valid():
             datosEncuentro= formularioEncuentro.cleaned_data
             encuentro = Encuentro()
@@ -484,8 +484,8 @@ def modificarPersona(request, id): #modificacion del admin
     data ={
         'form':FormularioPersona(instance=persona)
     }
-    if request.method == 'POST':
-        formulario = FormularioPersona(data=request.POST, instance=persona)
+    if request.method == 'GET':
+        formulario = FormularioPersona(data=request.GET, instance=persona)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -499,8 +499,8 @@ def modificarArbitro(request, id): #modificacion del arbitro
     data ={
         'form':FormularioArbitro(instance=arbitro)
     }
-    if request.method == 'POST':
-        formulario = FormularioArbitro(data=request.POST, instance=arbitro)
+    if request.method == 'GET':
+        formulario = FormularioArbitro(data=request.GET, instance=arbitro)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -514,8 +514,8 @@ def modificarJugador(request, id): #modificacion del jugador
     data ={
         'form':FormularioJugador(instance=jugador)
     }
-    if request.method == 'POST':
-        formulario = FormularioJugador(data=request.POST, instance=jugador)
+    if request.method == 'GET':
+        formulario = FormularioJugador(data=request.GET, instance=jugador)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -529,8 +529,8 @@ def modificarTicket(request, id): #modificacion del ticket
     data ={
         'form':FormularioTicket(instance=ticket)
     }
-    if request.method == 'POST':
-        formulario = FormularioTicket(data=request.POST, instance=ticket)
+    if request.method == 'GET':
+        formulario = FormularioTicket(data=request.GET, instance=ticket)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -544,8 +544,8 @@ def modificarTorneo(request, id): #modificacion del torneo
     data ={
         'form':FormularioTorneo(instance=torneo)
     }
-    if request.method == 'POST':
-        formulario = FormularioTorneo(data=request.POST, instance=torneo)
+    if request.method == 'GET':
+        formulario = FormularioTorneo(data=request.GET, instance=torneo)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -560,8 +560,8 @@ def modificarEquipo(request, id): #modificacion del equipo
     data ={
         'form':FormularioEquipo(instance=equipo)
     }
-    if request.method == 'POST':
-        formulario = FormularioEquipo(data=request.POST, instance=equipo)
+    if request.method == 'GET':
+        formulario = FormularioEquipo(data=request.GET, instance=equipo)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -575,8 +575,8 @@ def modificarImplemento(request, id): #modificacion del implemento
     data ={
         'form':FormularioImplementos(instance=implemento)
     }
-    if request.method == 'POST':
-        formulario = FormularioImplementos(data=request.POST, instance=implemento)
+    if request.method == 'GET':
+        formulario = FormularioImplementos(data=request.GET, instance=implemento)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
@@ -590,8 +590,8 @@ def modificarEncuentro(request, id): #modificacion del encuentro
     data ={
         'form':FormularioEncuentro(instance=encuentro)
     }
-    if request.method == 'POST':
-        formulario = FormularioEncuentro(data=request.POST, instance=encuentro)
+    if request.method == 'GET':
+        formulario = FormularioEncuentro(data=request.GET, instance=encuentro)
         if formulario.is_valid():
             formulario.save()
             print('Se actualizo')
